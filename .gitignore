@@ -1,3 +1,5 @@
+# This Project
+*.Generated.cs
 
 # Created by https://www.gitignore.io/api/node,csharp,windows
 # Edit at https://www.gitignore.io/?templates=node,csharp,windows
