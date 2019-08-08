@@ -8,6 +8,6 @@ namespace T4Sample
 
         public IEnumerable<ColumnInfo> Columns { get; set; }
 
-        public string? Description { get; set; }
+        public string Description { get; set; }
     }
 }
