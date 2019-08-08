@@ -7,6 +7,7 @@ namespace T4Sample
     {
         static void Main()
         {
+            // DB Type => .NET Type
             var typeDef = new Dictionary<string, string>()
             {
                 { "integer", "int" },
@@ -14,6 +15,7 @@ namespace T4Sample
                 { "date", "DateTime" },
             };
 
+            // Mock Table Data
             var table = new TableInfo()
             {
                 Name = "staff_master",
@@ -27,8 +29,11 @@ namespace T4Sample
                 }
             };
 
+            // This variable type should be an interface because avoid CS1061 compile error.
+            // At runtime, the implementation's TransformText() is called.
             ITextTemplate template = new TableEntityTemplate(typeDef, "MyNameSpace", table);
 
+            // Actually, you can output to a file like "StaffMaster.cs".
             Console.WriteLine(template.TransformText());
         }
     }

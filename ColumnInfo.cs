@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace T4Sample
 {
     public class ColumnInfo
