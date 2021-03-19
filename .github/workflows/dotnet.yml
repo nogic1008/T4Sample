@@ -33,3 +33,4 @@ jobs:
       with:
         name: generated
         path: src/StaffMaster.cs
+        if-no-files-found: 'error'
