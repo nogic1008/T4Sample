@@ -26,6 +26,14 @@ This sample uses [Mono.TextTemplating](https://github.com/mono/t4) which is a T4
 
 ## Processes
 
+### Create .NET tool manifest
+
+```console
+> dotnet new tool-manifest
+```
+
+This command creates `.config/dotnet-tools.json`.
+
 ### 1. Create Project
 
 ```console
