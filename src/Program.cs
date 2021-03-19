@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace T4Sample
 {
-    class Program
+    internal static class Program
     {
-        static void Main()
+        private static void Main()
         {
             // DB Type => .NET Type
             var typeDef = new Dictionary<string, string>()
