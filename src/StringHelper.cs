@@ -39,7 +39,7 @@ namespace T4Sample
                 stackalloc char[source.Length] : new char[source.Length];
 
             int written = 0;
-            foreach (var c in source)
+            foreach (char c in source)
             {
                 if (c == '_')
                 {

@@ -38,7 +38,7 @@ namespace T4Sample
         /// If the column is nullable, add "?" To the return value.
         /// </returns>
         public string GetColumnType(ColumnInfo column)
-            => _typeDictionary.TryGetValue(column.Type, out var n) ? n : column.Type
+            => _typeDictionary.TryGetValue(column.Type, out string n) ? n : column.Type
                 + (column.NotNull ? "" : "?");
     }
 }
