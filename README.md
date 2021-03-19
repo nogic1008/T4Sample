@@ -26,30 +26,34 @@ This sample uses [Mono.TextTemplating](https://github.com/mono/t4) which is a T4
 
 ## Processes
 
-### Create .NET tool manifest
+### 1. Install .NET local tool
 
 ```console
+# You should create manifest file before install local tool.
 > dotnet new tool-manifest
+# Install T4 tool in local
+> dotnet tool install dotnet-t4
 ```
 
-This command creates `.config/dotnet-tools.json`.
+```json
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "dotnet-t4": {
+      "version": "2.2.1",
+      "commands": [
+        "t4"
+      ]
+    }
+  }
+}
+```
 
-### 1. Create Project
+### 2. Create Project
 
 ```console
-> dotnet new console
-```
-
-### 2. Add `LangVersion` to .csproj
-
-- Set `LangVersion` to *8.0*.
-
-```diff
-   <PropertyGroup>
-+    <LangVersion>8.0</LangVersion>
-     <OutputType>Exe</OutputType>
-     <TargetFramework>netcoreapp3.0</TargetFramework>
-   </PropertyGroup>
+> dotnet new console -n T4Sample -o ./src
 ```
 
 ### 3. Create Table and Column Entities
