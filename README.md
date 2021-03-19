@@ -6,8 +6,8 @@ In Japanese, see also [.NET Core+VS CodeでもT4 テンプレートエンジン�
 
 ## Environments
 
-- .NET Core 3.0 SDK (Preview 7)
-  - For use ["default implementation of interfaces"](https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/default-interface-members-versions).
+- .NET Core 3.1 SDK
+  - For use ["default implementation of interfaces"](https://docs.microsoft.com/dotnet/csharp/tutorials/default-interface-members-versions).
 
 - Visual Studio Code
   - Required: [C# Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
@@ -44,8 +44,8 @@ This sample uses [Mono.TextTemplating](https://github.com/mono/t4) which is a T4
 
 ### 3. Create Table and Column Entities
 
-- [ColumnInfo.cs](./ColumnInfo.cs)
-- [TableInfo.cs](./TableInfo.cs)
+- [ColumnInfo.cs](./src/ColumnInfo.cs)
+- [TableInfo.cs](./src/TableInfo.cs)
 
 ### 4. Install Mono.TextTemplating from NuGet
 
@@ -135,14 +135,14 @@ namespace T4Sample
 
 Note that T4 class should be defined with `partial` class.
 
-- [TableEntityTemplate.tt](./TableEntityTemplate.tt)
-- [TableEntityTemplate.cs](./TableEntityTemplate.cs)
+- [TableEntityTemplate.tt](./src/TableEntityTemplate.tt)
+- [TableEntityTemplate.cs](./src/TableEntityTemplate.cs)
 
 ### 9. Call T4 Class in Program.cs
 
 Note that variable type should be an interface. **Don't** use `var` or `TableEntityTemplate`.
 
-- [Program.cs](./Program.cs)
+- [Program.cs](./src/Program.cs)
 
 ## Build & Run
 
@@ -159,6 +159,7 @@ Note that variable type should be an interface. **Don't** use `var` or `TableEnt
 `dotnet run` does not cause Beforebuild-Event, you should execute `dotnet build` first.
 
 ```console
+> cd src
 > dotnet run
 ```
 
