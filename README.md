@@ -50,6 +50,8 @@ This sample uses [Mono.TextTemplating](https://github.com/mono/t4) which is a T4
 }
 ```
 
+**Note: You should call `dotnet tool restore` command after cloned repo.**
+
 ### 2. Create Project
 
 ```console
