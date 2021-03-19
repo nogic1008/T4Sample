@@ -6,8 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <DotNetCliToolReference Include="dotnet-t4-project-tool" Version="2.0.5" />
-    <PackageReference Include="Mono.TextTemplating" Version="2.0.5" />
+    <PackageReference Include="Mono.TextTemplating" Version="2.2.1" />
     <TextTemplate Include="**\*.tt" />
     <Generated Include="**\*.Generated.cs" />
   </ItemGroup>

@@ -1,69 +1,44 @@
 <#@ template language="C#" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Linq" #>
-<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
 using System;
 using System.Collections.Generic;
 
 namespace <#= NameSpace #>
 {
-<#
-    if (!string.IsNullOrEmpty(Table.Description))
-    {
-#>
+<# if (!string.IsNullOrEmpty(Table.Description)) { #>
     /// <summery>
     /// <#= Table.Description #>
     /// </summery>
-<#
-    }
-#>
+<# } #>
     public class <#= Table.Name.ToPascalCase() #>
     {
-<#
-        foreach (var x in Table.Columns)
-        {
-#>
-<#
-            if (!string.IsNullOrEmpty(x.Description))
-            {
-#>
+<# foreach (var x in Table.Columns) { #>
+<# if (!string.IsNullOrEmpty(x.Description)) { #>
         /// <summery>
         /// <#= x.Description #>
         /// </summery>
-<#
-            }
-#>
+<# } // End if #>
         public <#= GetColumnType(x) #> <#= x.Name.ToPascalCase() #> { get; <#= x.IsPrimary ? "" : "set; " #>}
 
-<#
-        }
-#>
+<# } // End foreach #>
         public <#= Table.Name.ToPascalCase() #>(
             <#= string.Join(",\n            ", Table.Columns.Where(x => x.IsPrimary).Select(d => $"{GetColumnType(d)} {d.Name.ToCamelCase()}")) #>
         )
         {
-<#
-            foreach (var x in Table.Columns.Where(x => x.IsPrimary))
-            {
-#>
+<# foreach (var x in Table.Columns.Where(x => x.IsPrimary)) { #>
             <#= x.Name.ToPascalCase() #> = <#= x.Name.ToCamelCase() #>;
-<#
-            }
-#>
+<# } #>
         }
 
         public <#= Table.Name.ToPascalCase() #>(
             <#= string.Join(",\n            ", Table.Columns.Select(d => $"{GetColumnType(d)} {d.Name.ToCamelCase()}")) #>
         )
         {
-<#
-            foreach (var x in Table.Columns)
-            {
-#>
+<# foreach (var x in Table.Columns) { #>
             <#= x.Name.ToPascalCase() #> = <#= x.Name.ToCamelCase() #>;
-<#
-            }
-#>
+<# } #>
         }
     }
 }
