@@ -1,5 +1,7 @@
 # T4Sample (How to Use T4 in .NET Core + VSCode)
 
+[![License](https://img.shields.io/github/license/nogic1008/T4Sample)](LICENSE)
+
 This is a sample to create a table Entity class using T4.
 
 In Japanese, see also [.NET Core+VS CodeでもT4 テンプレートエンジンでコード生成したい！](https://qiita.com/nogic1008/items/2c4049d43a11e83df15b)
