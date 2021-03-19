@@ -1,0 +1,35 @@
+name: .NET
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  build:
+    name: Debug Build & Run
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1.7.2
+      with:
+        dotnet-version: 3.1
+
+    - name: Restore Tool
+      run: dotnet tool restore
+    - name: Restore
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+
+    - name: Run
+      run: dotnet run > StaffMaster.cs
+      working-directory: src
+    - uses: actions/upload-artifact@v2
+      with:
+        name: generated
+        path: src/StaffMaster.cs
